@@ -10,9 +10,10 @@ function WorkspaceDocument({params}) {
         <SideNav params={params} />
       </div>
 
+
       {/* Document */}
       <div className='md:ml-72'>
-        Document
+        Document is here
       </div>
     </div>
   )
