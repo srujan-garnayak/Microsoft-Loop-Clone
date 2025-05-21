@@ -13,7 +13,7 @@ function WorkspaceDocument({params}) {
 
       {/* Document */}
       <div className='md:ml-72'>
-        Document is here
+        Document
       </div>
     </div>
   )
