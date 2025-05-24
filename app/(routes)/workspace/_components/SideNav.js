@@ -1,20 +1,31 @@
 "use client"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Logo from '@/app/_components/Logo'
 import { Button } from '@/components/ui/button'
 import { Bell } from 'lucide-react'
 import React from 'react'
 import { query } from 'firebase/firestore';
+import { collection, onSnapshot, where } from 'firebase/firestore';
+import { db } from '@/config/firebaseConfig';
 
 function SideNav({params}) {
 
+  const [documentList, setDocumentList] = useState([]);
+
+  useEffect(() => {
+    params && GetDocumentList();
+  }, [params]);
+
+
     const GetDocumentList =() =>{
-        const q=query(collection(db, 'wokspaceDocuments'), where('workspaceId', '==', params?.workspaceid));
+        const q=query(collection(db, 'workspaceDocuments'),
+         where('workspaceId', '==',Number(params?.workspaceid)));
 
         const unSubscribe = onSnapshot(q, (querySnapshot) => {
             
             querySnapshot.forEach((doc) => {
                 console.log(doc.data());
+                setDocumentList(documentList => [...documentList, doc.data()]);
             });
             
         });
