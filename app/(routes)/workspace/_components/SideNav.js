@@ -8,6 +8,7 @@ import { query } from "firebase/firestore";
 import { collection, onSnapshot, where } from "firebase/firestore";
 import { db } from "@/config/firebaseConfig";
 import DocumentList from "./DocumentList";
+import uuid4 from "uuid4";
 
 function SideNav({ params }) {
   const [documentList, setDocumentList] = useState([]);
@@ -29,8 +30,19 @@ function SideNav({ params }) {
     });
   };
 
+  const CreateNewDocument = () => {
+    const docId = uuid4();
+    await setDoc(doc(db, "workspaceDocuments", docId.toString()), {
+      workspaceId:workspaceId,
+      createdby: "User Name",
+      documentName: "New Document",
+      emoji: "",
+      workspaceId: Number(params?.workspaceid),
+      documentId: docId,
+    });
+
   return (
-    <div className="md:w-72 hidden h-screen md:block fixed bg-blue-50">
+    <div className="md:w-72 hidden h-screen md:block fixed bg-blue-100 p-2">
       <div className="flex justify-between items-center p-5">
         <Logo />
         <Bell className="cursor-pointer text-gray-500" />
@@ -46,7 +58,7 @@ function SideNav({ params }) {
       </div>
 
       {/* Document List  */}
-      <DocumentList documentList = {documentList}/>
+      <DocumentList documentList = {documentList} params={params}/>
 
     </div>
   );
