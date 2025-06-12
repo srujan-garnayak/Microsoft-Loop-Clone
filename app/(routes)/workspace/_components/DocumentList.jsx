@@ -5,6 +5,7 @@ import DocumentOptions from "./DocumentOptions";
 import { toast } from "sonner";
  
 function DocumentList({ documentList , params }) {
+  
   const router = useRouter();
 
   const DeleteDocument = async(docId) => {
