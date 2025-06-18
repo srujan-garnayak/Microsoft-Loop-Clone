@@ -21,6 +21,9 @@ export default function Home() {
         height={37}
         priority
       />
+      <p className="text-gray-500">
+        Explore the code in the <code>app/page.js</code> file to see how it works.
+      </p>
 
     </main>
   );
