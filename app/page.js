@@ -11,6 +11,16 @@ export default function Home() {
       <h1 className="text-3xl font-bold underline">
         Hello world!
       </h1>
+      <p className="text-gray-500">
+        This is a simple Next.js application to demonstrate the use of components and styles.
+      </p>
+      <Image
+        src="/next.svg"
+        alt="Next.js Logo"
+        width={180}
+        height={37}
+        priority
+      />
 
     </main>
   );
