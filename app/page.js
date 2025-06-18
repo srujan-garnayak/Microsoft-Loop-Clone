@@ -24,15 +24,7 @@ export default function Home() {
       <p className="text-gray-500">
         Explore the code in the <code>app/page.js</code> file to see how it works.
       </p>
-      <div className="mt-4">
-        <Image
-          src="/vercel.svg"
-          alt="Vercel Logo"
-          width={100}
-          height={24}
-          priority
-        />
-      </div>
+      
 
     </main>
   );
