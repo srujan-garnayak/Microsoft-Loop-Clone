@@ -12,15 +12,6 @@ export default function Home() {
         Hello world!
       </h1>
       
-      <h1>
-        <Image
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </h1>
 
     </main>
   );
